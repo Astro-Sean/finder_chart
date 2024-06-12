@@ -3,6 +3,8 @@
 
 This is a relatively simple code using Astropy to produce a science-ready finder chart to be used for transient identification. The code will take a standard FITS image, align the image to celestial North, and annotate and highlight a given source.
 
+This script is meant to replace the lack of a dedicated means to rapidly produce science-ready finder charts.
+
 >  [!IMPORTANT]
 > This code does not solve for WCS (World Coordinate System) values and uses the transient's Right Ascension and Declination as inputs. Make sure you have accurate WCS values written to your FITS files; otherwise, your finder chart may be incorrect!"
 
