@@ -1,5 +1,3 @@
-[arxiv_link_SN2023fyq]: https://arxiv.org/abs/2401.15148
-
 
 # create_finder_chart.py
 
@@ -10,7 +8,7 @@ This is a relatively simple code using Astropy to produce a science-ready finder
 
 ## Usage
 
-To produce your own finder chart - edit the following block of code in create_finder_chart.py. The following code was used when producing a finder chart used in the follow-up of [SN2023fyq](arxiv_link_SN2023fyq).
+To produce your own finder chart - edit the following block of code in create_finder_chart.py. The following code was used when producing a finder chart used in the follow-up of [SN 2023fyq](https://arxiv.org/abs/2401.15148).
 
 ```python
 # For the filename and will be used as a label when pointing out the transient
