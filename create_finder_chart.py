@@ -48,16 +48,20 @@ saveloc = '/home/seanbrennan/Desktop/finder_charts/github'
 ra,dec = 186.441143074, +12.6635758235
 
 # Size of image in arcmins
-cutsize  = 5
+cutsize  = 3
 
 # size of scalebar in arcmins
 scalebar = 1
 
 # # size of cutout in arcseconds
-inset_cutsize = 15
+inset_cutsize = 8
 
 # size of cutout in acrseconds
-inset_scalebar = 5
+inset_scalebar = 3
+
+# lower,upper percentile values used for vmin,vmax when plotting image
+# Adjust values to improve contrast
+vmin,vmax = 0.5,99.5
 
 # =============================================================================
 # 
@@ -105,7 +109,7 @@ Image will be {cutsize:.1f} arcmins wide wtih a {inset_cutsize:.1f} arcsecs wide
 
 Figure will have the title '{title_name}' 
 
-Figure will be saved to {saveloc} with the filename '{fname}'
+Figure will be saved to '{saveloc}' with the filename '{fname}'
 
 """
 
@@ -145,20 +149,21 @@ left, bottom, width, height = [0.65, 0.65, 0.25, 0.25]
 ax2 = fig.add_axes([left, bottom, width, height],projection=image_ax2.wcs)
 
 
-vmin,vmax = (ZScaleInterval(nsamples = 1200)).get_limits(image_ax1.data[np.isfinite(image_ax1.data)])
-vmin,vmax = np.nanpercentile(image_ax1.data[np.isfinite(image_ax1.data)], [0.5,99.9])
+# vmin,vmax = (ZScaleInterval(nsamples = 1200)).get_limits(image_ax1.data[np.isfinite(image_ax1.data)])
+vmin_p,vmax_p = np.nanpercentile(image_ax1.data[np.isfinite(image_ax1.data)], [vmin,vmax])
 ax1.imshow(image_ax1.data,
            cmap='gray_r',
            origin='lower', 
-           vmin=vmin, 
-           vmax=vmax)
+           vmin=vmin_p, 
+           vmax=vmax_p)
 
-vmin,vmax = (ZScaleInterval(nsamples = 1200)).get_limits(image_ax2_tmp.data[np.isfinite(image_ax2_tmp.data)])
+vmin_p,vmax_p = (ZScaleInterval(nsamples = 1200)).get_limits(image_ax2_tmp.data[np.isfinite(image_ax2_tmp.data)])
+# vmin,vmax = np.nanpercentile(image_ax2.data[np.isfinite(image_ax2.data)], [vmin,vmax])
 ax2.imshow(image_ax2.data,
            cmap='gray_r',
            origin='lower',
-           vmin=vmin, 
-           vmax=vmax)
+           vmin=vmin_p, 
+           vmax=vmax_p)
 
 
 lon = ax2.coords[0]   
