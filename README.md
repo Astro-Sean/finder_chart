@@ -32,7 +32,7 @@ cutsize = 3
 # Size of scale bar in arcminutes
 scalebar = 1
 
-# Size of cutout in arcseconds
+# Size of inset cutout in arcseconds
 inset_cutsize = 8
 
 # Size of inset scalebar in arcseconds
@@ -41,6 +41,14 @@ inset_scalebar = 3
 # Lower and upper percentile values used for vmin, vmax when plotting the image
 # Adjust values to improve contrast
 vmin, vmax = 0.5, 99.5
+```
+
+Once you updated this parameters, run the code to produce your fidner chart.
+
+```bash
+
+ > python create_finder_chart.py
+
 ```
 
 
