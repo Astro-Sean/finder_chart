@@ -35,7 +35,7 @@ scalebar = 1
 # Size of cutout in arcseconds
 inset_cutsize = 8
 
-# Size of cutout in arcseconds
+# Size of inset scalebar in arcseconds
 inset_scalebar = 3
 
 # Lower and upper percentile values used for vmin, vmax when plotting the image
