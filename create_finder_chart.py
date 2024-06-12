@@ -53,10 +53,10 @@ cutsize  = 3
 # size of scalebar in arcmins
 scalebar = 1
 
-# # size of cutout in arcseconds
+# Size of inset cutout in arcseconds
 inset_cutsize = 8
 
-# size of cutout in acrseconds
+# Size of inset scalebar in arcseconds
 inset_scalebar = 3
 
 # lower,upper percentile values used for vmin,vmax when plotting image
@@ -145,8 +145,9 @@ image_ax2 = image_ax1
 
 ax1 = fig.add_subplot(111,projection=image_ax1.wcs)
 
-left, bottom, width, height = [0.65, 0.65, 0.25, 0.25]
+left, bottom, width, height = [0.6, 0.6, 0.25, 0.25]
 ax2 = fig.add_axes([left, bottom, width, height],projection=image_ax2.wcs)
+ax2.set_aspect('equal')
 
 
 # vmin,vmax = (ZScaleInterval(nsamples = 1200)).get_limits(image_ax1.data[np.isfinite(image_ax1.data)])
