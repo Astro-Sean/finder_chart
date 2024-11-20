@@ -13,36 +13,55 @@ This script is meant to replace the lack of a dedicated means to rapidly produce
 To produce your own finder chart - edit the following block of code in create_finder_chart.py. The following code was used when producing a finder chart used in the follow-up of [SN 2023fyq](https://arxiv.org/abs/2401.15148).
 
 ```python
-# For the filename and will be used as a label when pointing out the transient
+# For the filename
 tname = 'SN2023fyq'
 
 # The title of the figure
 title_name = 'SN2023fyq || NOT/ALFOSC || r band || 2023-12-08'
 
-# Where your file is - WCS must be correct in the file's header
+# Where you file is
 fpath = '/home/seanbrennan/Desktop/SN2023fyq/images/NOT_ALFOSC/ZTF22abzzvln_NOT_ALFOSC_20231208_r_SDSS_wcs.fits'
 
 # The location you are saving it to
-saveloc = '/home/seanbrennan/Desktop/finder_charts/github'
+saveloc = '/home/seanbrennan/Desktop/'
 
-# Ra and Dec in degrees of the target
-ra, dec = 186.441143074, +12.6635758235
 
-# Size of image in arcminutes
-cutsize = 3
+# Ra and Dec in degress of the target
+ra,dec = 186.441143074, +12.6635758235
 
-# Size of scale bar in arcminutes
+
+# size of cutout in acrseconds
+scale_cutout = 3
+
+# Size of image in arcmins
+cutsize  = 3
+
+# size of scalebar in arcmins
 scalebar = 1
 
 # Size of inset cutout in arcseconds
-inset_cutsize = 8
+inset_cutsize = 10
 
 # Size of inset scalebar in arcseconds
-inset_scalebar = 3
+inset_scalebar = 5
 
-# Lower and upper percentile values used for vmin, vmax when plotting the image
+# lower,upper percentile values used for vmin,vmax when plotting image
 # Adjust values to improve contrast
-vmin, vmax = 0.5, 99.5
+vmin,vmax = 0.5,99.5
+
+# Plot a rectangle on the image to represent the spectrograh's slit location
+plot_slit = True
+
+# For plotting the slit - do you want the slit offset from the transient location
+ra_offset_arcsec = 0
+dec_offset_arcsec = 0
+
+slit_angle = 35 # in degrees with respects to the paragalatic angle (set to 0 for paragalactic angle)
+
+# This is just for plotting and while likely change depending on your telescope & spectrograph
+slit_length_arcsec = 11  
+slit_width_arcsec = 0.5   
+
 ```
 
 Once you updated this parameters, run the code to produce your fidner chart.
